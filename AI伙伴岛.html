@@ -4936,6 +4936,7 @@
 
     <script>
       const STORAGE_KEY = "ai-partner-island-v1";
+      const IS_PUBLIC_DEMO = window.location.hostname === "jingzaoxin-cell.github.io";
       const DRIVER_BASE_URL = resolveDriverBaseUrl();
 
       const levels = [
@@ -5828,7 +5829,7 @@
       let lastCopyMessage = "内容已复制。";
       let dialogPrimaryMode = "copy";
       let pendingDirectorNote = "";
-      let driverStatusText = "未检测";
+      let driverStatusText = IS_PUBLIC_DEMO ? "在线试玩：不连接云端 AI，完整 AI 版请启动本地服务" : "未检测";
       let directorBusy = false;
       let recognition = null;
       let isListening = false;
@@ -7626,12 +7627,12 @@
             </div>
             <div class="card-slot card-span-4 parent-only parent-advanced">
               <div class="tool-card">
-                <h4>本地 Codex 导演服务</h4>
+                <h4>${IS_PUBLIC_DEMO ? "在线试玩版" : "本地 Codex 导演服务"}</h4>
                 <p class="hint">状态：${escapeHtml(driverStatusText)}</p>
-                <p class="hint" style="margin-top: 8px;">草稿只进入家长预览，不会自动改游戏。</p>
+                <p class="hint" style="margin-top: 8px;">${IS_PUBLIC_DEMO ? "基础关卡可以直接玩；真实 AI 草稿需要本地服务或云端服务。" : "草稿只进入家长预览，不会自动改游戏。"}</p>
                 <div class="tool-actions" style="margin-top: 10px;">
-                  <button class="small-button" type="button" data-action="checkDirector">检测服务</button>
-                  <button class="small-button dark" type="button" data-action="requestDirector" ${directorBusy ? "disabled" : ""}>${directorBusy ? "生成中" : "请求 Codex 导演"}</button>
+                  <button class="small-button" type="button" data-action="checkDirector">${IS_PUBLIC_DEMO ? "查看说明" : "检测服务"}</button>
+                  <button class="small-button dark" type="button" data-action="requestDirector" ${directorBusy || IS_PUBLIC_DEMO ? "disabled" : ""}>${IS_PUBLIC_DEMO ? "本地版可用" : directorBusy ? "生成中" : "请求 Codex 导演"}</button>
                 </div>
               </div>
             </div>
@@ -8117,6 +8118,12 @@ AI 帮我：${parts.aiHelp}
       }
 
       async function checkDirector(showReadyToast = true) {
+        if (IS_PUBLIC_DEMO) {
+          driverStatusText = "在线试玩：基础关卡可玩，AI 草稿需要本地服务";
+          if (showReadyToast) showToast("在线试玩版先玩基础关卡；完整 AI 草稿请用本地服务。");
+          renderStage();
+          return;
+        }
         try {
           const response = await fetchWithTimeout(`${DRIVER_BASE_URL}/health`);
           const body = await response.json();
@@ -8131,6 +8138,12 @@ AI 帮我：${parts.aiHelp}
       }
 
       async function requestDirectorDraft() {
+        if (IS_PUBLIC_DEMO) {
+          driverStatusText = "在线试玩：AI 草稿未接入云端";
+          renderStage();
+          showToast("在线试玩版不会请求真实 AI；完整 AI 版请启动本地导演服务。");
+          return;
+        }
         if (directorBusy) return;
         directorBusy = true;
         driverStatusText = "生成草稿中";

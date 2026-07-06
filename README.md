@@ -25,6 +25,19 @@
 
 ## 快速打开
 
+在线试玩版：
+
+```text
+https://jingzaoxin-cell.github.io/ai-partner-island/
+```
+
+说明：
+
+- 在线试玩版由 GitHub Pages 提供，是纯静态前端版本。
+- 基础关卡、愿望练习、电子宠物、成长记录等可以直接玩。
+- 真实 Codex/OpenAI 导演草稿不在网页端直接调用，避免把 API key 放进浏览器。
+- 完整 AI 版请按下面方式在本地或家庭小主机上启动服务端。
+
 主游戏文件：
 
 ```text
