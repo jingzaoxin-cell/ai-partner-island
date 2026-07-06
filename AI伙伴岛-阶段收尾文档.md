@@ -54,6 +54,7 @@ ai-partner-island-server
 常用访问地址：
 
 ```text
+https://jingzaoxin-cell.github.io/ai-partner-island/
 http://localhost:8788/AI伙伴岛.html
 http://localhost:8787/AI伙伴岛.html
 ```
@@ -80,8 +81,9 @@ http://localhost:8787/AI伙伴岛.html
 6. `AI伙伴岛-社区AI启蒙项目参考与玩法拓展.md`：外部 AI 启蒙项目参考和玩法池。
 7. `AI伙伴岛-底层智能驱动计划.md`：Codex/OpenAI 驱动规划。
 8. `AI伙伴岛-伙伴成长版设计说明.md`：电子宠物向导版的设计说明。
-9. `AI伙伴岛-单独通关说明.md`、`AI伙伴岛-通关手册.md`：给家长和孩子看的简化说明。
-10. `ai-partner-island-server/README.md`：本地导演服务的启动和配置说明。
+9. `AI伙伴岛-快速上手与通关秘籍.md`：给第一次试玩的孩子和家长看的玩家入口。
+10. `AI伙伴岛-单独通关说明.md`、`AI伙伴岛-通关手册.md`：给家长和孩子看的简化说明。
+11. `ai-partner-island-server/README.md`：本地导演服务的启动和配置说明。
 
 文件名里保留“通关”的文档，主要是为了旧入口、打印版和测试路径继续可用。内容方向已经改成“成长任务/AI 伙伴协作”。
 

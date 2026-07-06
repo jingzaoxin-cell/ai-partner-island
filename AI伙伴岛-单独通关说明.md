@@ -4,6 +4,20 @@
 
 这份说明只讲家里怎么玩。目标不是快速通关，而是让孩子在电子宠物的陪伴下认识 AI、学习 AI、应用 AI，并学会和 AI 沟通配合。
 
+更短的玩家入口见：
+
+```text
+AI伙伴岛-快速上手与通关秘籍.md
+```
+
+在线试玩版：
+
+```text
+https://jingzaoxin-cell.github.io/ai-partner-island/
+```
+
+在线试玩版可以直接玩基础关卡、愿望练习、电子宠物和成长记录；真实 Codex/OpenAI 草稿需要本地完整 AI 版，不能把 API key 放进浏览器。
+
 ## 最简单玩法
 
 每次打开游戏，只做 3 步：
@@ -72,6 +86,16 @@
 如果孩子说的不是口令，游戏会把它当作成长日记记下来。
 
 ## Codex 怎么用
+
+在线试玩版里，“请求 Codex 导演”不会连接真实 AI。完整 AI 版需要先启动本地服务：
+
+```bash
+cd ai-partner-island-server
+npm install
+npm start
+```
+
+然后按下面流程玩：
 
 1. 家长先点“检测服务”。
 2. 再点“请求 Codex 导演”。

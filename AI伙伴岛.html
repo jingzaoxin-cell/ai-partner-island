@@ -113,6 +113,9 @@
       }
 
       .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         min-height: 42px;
         padding: 0 15px;
         border: 2px solid rgba(99, 160, 255, 0.28);
@@ -121,6 +124,7 @@
         color: var(--ink);
         font-weight: 900;
         box-shadow: 0 10px 24px rgba(57, 83, 120, 0.11);
+        text-decoration: none;
       }
 
       .button.primary {
@@ -4853,6 +4857,7 @@
           </div>
         </div>
         <div class="toolbar">
+          <a class="button sun" href="./AI伙伴岛-快速上手与通关秘籍.html" target="_blank" rel="noopener">怎么玩</a>
           <button class="mode-chip" id="modeToggle" type="button" data-action="toggleParentMode">家长看一眼</button>
           <button class="button parent-only parent-advanced" type="button" data-action="export">导出给 Codex 导演</button>
           <button class="button" type="button" data-action="openSummary">作品展</button>

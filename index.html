@@ -55,13 +55,29 @@
         font-weight: 800;
         text-decoration: none;
       }
+
+      .links {
+        display: grid;
+        gap: 10px;
+      }
+
+      .links a:not(:first-child) {
+        border: 1px solid rgba(108, 137, 176, 0.28);
+        background: #fff;
+        color: #26334f;
+      }
     </style>
   </head>
   <body>
     <main>
       <h1>AI伙伴岛</h1>
       <p>正在进入在线试玩版。若浏览器没有自动跳转，请点下面按钮。</p>
-      <a href="./AI伙伴岛.html">开始试玩</a>
+      <nav class="links" aria-label="游戏和资料入口">
+        <a href="./AI伙伴岛.html">开始试玩</a>
+        <a href="./AI伙伴岛-快速上手与通关秘籍.html">怎么玩 / 通关秘籍</a>
+        <a href="./AI伙伴岛-单独通关说明-打印版.html">打印版通关说明</a>
+        <a href="./AI伙伴岛-单独通关说明-黑白扫描版.html">黑白扫描版</a>
+      </nav>
     </main>
   </body>
 </html>
