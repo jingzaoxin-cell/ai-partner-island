@@ -60,7 +60,7 @@ http://localhost:8788/AI伙伴岛.html
 如果是从 GitHub 克隆：
 
 ```bash
-git clone https://github.com/YOUR_NAME/ai-partner-island.git
+git clone https://github.com/jingzaoxin-cell/ai-partner-island.git
 cd ai-partner-island/ai-partner-island-server
 npm install
 npm start
