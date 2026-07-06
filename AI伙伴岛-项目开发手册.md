@@ -166,6 +166,8 @@
 - `renderWishEngine()`：愿望引擎，把好奇心转成任务类型和奇遇。
 - `renderKidSideBoard()`：孩子任务贴纸板，承载支线任务、奖励和合作三句话。
 - `renderKnowledgeQuest()`：知识宝石任务，把学科知识放进参数里。
+- `renderFloatingGuide()`：右下角轻量指引，只显示“现在做 / 点哪里 / 完成标志”。
+- `followFloatingGuide()`：带孩子滚动到下一步目标并短暂高亮，不能自动填写或自动通关。
 - `renderStage()`：决定当前关卡主内容顺序。
 - `currentOpenStageDrawers()` / `restoreOpenStageDrawers()`：重绘前后保留“关卡小报 / 更多玩法 / 成长工具箱”的展开状态。
 - `startPetHatching()`：孵化入口；未到第 4 关时只提示前置基础任务，不跳关。
@@ -177,6 +179,7 @@
 
 - `state.notes`：成长日记。
 - `state.petAvatar`：宠物形象自定义。
+- `state.helperOpen`：右下角“提示”是否展开。
 - `state.wishEngine`：愿望引擎当前类型和奇遇。
 - `state.storyQuest`：每关愿望小剧场当前选择。
 - `state.curiosityPool`：好奇心许愿池当前问题卡。

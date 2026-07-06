@@ -148,6 +148,10 @@ test("GET /AI伙伴岛.html presents the partner growth play flow", async () => 
     assert.match(body, /成长工具箱/);
     assert.match(body, /currentOpenStageDrawers/);
     assert.match(body, /restoreOpenStageDrawers/);
+    assert.match(body, /小精灵游戏指引/);
+    assert.match(body, /floatingGuideNext/);
+    assert.match(body, /现在做/);
+    assert.match(body, /完成标志/);
     assert.match(body, /AI 伙伴对话练习/);
     assert.match(body, /说愿望/);
     assert.match(body, /补细节/);

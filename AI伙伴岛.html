@@ -3914,6 +3914,150 @@
         transform: translate(-50%, 0);
       }
 
+      .floating-guide {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 24;
+        width: min(360px, calc(100% - 36px));
+        color: var(--ink);
+      }
+
+      .floating-guide:not(.open) {
+        width: auto;
+      }
+
+      .floating-guide-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 8px 14px 8px 9px;
+        border: 2px solid rgba(71, 199, 164, 0.42);
+        border-radius: 999px;
+        background: #ffffff;
+        box-shadow: 0 16px 44px rgba(37, 50, 77, 0.18);
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 950;
+      }
+
+      .floating-guide-mark {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border-radius: 11px;
+        background: var(--mint-soft);
+        color: #2f8f78;
+        font-weight: 950;
+      }
+
+      .floating-guide-card {
+        overflow: hidden;
+        border: 2px solid rgba(71, 199, 164, 0.36);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 18px 58px rgba(37, 50, 77, 0.2);
+      }
+
+      .floating-guide-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 12px 8px;
+        border-bottom: 1px solid rgba(71, 199, 164, 0.18);
+      }
+
+      .floating-guide-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .floating-guide-title strong,
+      .floating-guide-subtitle {
+        display: block;
+      }
+
+      .floating-guide-title strong {
+        font-size: 15px;
+        font-weight: 950;
+      }
+
+      .floating-guide-subtitle {
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .floating-guide-close {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--cloud);
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      .floating-guide-rows {
+        display: grid;
+        gap: 8px;
+        padding: 10px 12px 12px;
+      }
+
+      .floating-guide-row {
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 8px;
+        align-items: start;
+      }
+
+      .floating-guide-row span {
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: var(--blue-soft);
+        color: #2f5c9f;
+        font-size: 12px;
+        font-weight: 950;
+        text-align: center;
+      }
+
+      .floating-guide-row strong {
+        min-width: 0;
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.42;
+        font-weight: 900;
+      }
+
+      .floating-guide-actions {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        align-items: center;
+        padding: 0 12px 12px;
+      }
+
+      .floating-guide-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.35;
+        font-weight: 800;
+      }
+
+      .guide-target-pulse {
+        animation: guideTargetPulse 900ms ease-out;
+      }
+
       .summary {
         display: grid;
         gap: 12px;
@@ -4288,6 +4432,18 @@
         }
       }
 
+      @keyframes guideTargetPulse {
+        0%,
+        100% {
+          outline: 0 solid rgba(71, 199, 164, 0);
+          box-shadow: inherit;
+        }
+        34% {
+          outline: 4px solid rgba(71, 199, 164, 0.32);
+          box-shadow: 0 0 0 9px rgba(255, 217, 109, 0.18);
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .celebration-card,
         .celebration-card::before,
@@ -4305,7 +4461,8 @@
         .partner-reply-card.wish-pop,
         .pet-card.wish-pop,
         .episode-card.wish-pop,
-        .knowledge-card.knowledge-sparkle .parameter-chip {
+        .knowledge-card.knowledge-sparkle .parameter-chip,
+        .guide-target-pulse {
           animation-duration: 1ms;
           animation-iteration-count: 1;
         }
@@ -4481,6 +4638,21 @@
         .app {
           width: min(100% - 18px, 1240px);
           padding-top: 12px;
+        }
+
+        .floating-guide.open {
+          right: 9px;
+          bottom: 10px;
+          left: 9px;
+          width: auto;
+        }
+
+        .floating-guide-actions {
+          grid-template-columns: 1fr;
+        }
+
+        .floating-guide-row {
+          grid-template-columns: 68px minmax(0, 1fr);
         }
 
         .topbar {
@@ -4927,6 +5099,7 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <div class="celebration-overlay" id="celebration" aria-live="polite" aria-atomic="true"></div>
+    <aside class="floating-guide" id="floatingGuide" aria-label="小精灵游戏指引"></aside>
 
     <div class="dialog-backdrop" id="dialog">
       <section class="modal" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
@@ -5199,6 +5372,7 @@
         },
         parentMode: false,
         parentAdvanced: false,
+        helperOpen: false,
         selectedLevel: 1,
         unlockedLevel: 1,
         completed: {},
@@ -5863,6 +6037,7 @@
         stage: document.querySelector("#stage"),
         toast: document.querySelector("#toast"),
         celebration: document.querySelector("#celebration"),
+        floatingGuide: document.querySelector("#floatingGuide"),
         dialog: document.querySelector("#dialog"),
         dialogTitle: document.querySelector("#dialogTitle"),
         dialogPrimary: document.querySelector("#dialogPrimary"),
@@ -5889,6 +6064,7 @@
           next.wishEngine = { ...defaultState.wishEngine, ...next.wishEngine };
           next.parentMode = Boolean(next.parentMode);
           next.parentAdvanced = Boolean(next.parentAdvanced);
+          next.helperOpen = Boolean(next.helperOpen);
           return next;
         } catch {
           return { ...defaultState };
@@ -7394,6 +7570,181 @@
         `;
       }
 
+      function floatingGuideContent() {
+        const level = currentLevel();
+        const flavor = currentFlavor(level.id);
+        const note = state.notes[level.id] || "";
+        const done = Boolean(state.completed[level.id]);
+        const hasNote = note.trim().length > 0;
+        const current = done ? 4 : guideStepIndex(level.id);
+        const step = guideStepsFor(level, flavor, note, done)[current];
+        let where = "点“记下愿望”";
+        let finish = "写下一句“我想让 AI 帮我……”。";
+
+        if (done) {
+          where = "打开作品展";
+          finish = `已获得：${level.badge}`;
+        } else if (!hasNote) {
+          where = current <= 1 ? "点“记下愿望”" : "打开成长工具箱";
+          finish = "成长日记里有一句自己的想法。";
+        } else if (current <= 2) {
+          where = IS_PUBLIC_DEMO ? "点“完成冒险”" : "点“请小精灵帮我想”";
+          finish = "记住：AI 先给草稿，最后由我决定。";
+        } else {
+          where = "点“完成冒险”";
+          finish = "收集星星和徽章，解锁下一关。";
+        }
+
+        return {
+          title: `第 ${level.id} 关小提示`,
+          now: step.title,
+          where,
+          finish,
+          helper: step.action,
+          button: done ? "打开作品展" : "带我点下一步"
+        };
+      }
+
+      function renderFloatingGuide() {
+        if (!els.floatingGuide) return;
+        const info = floatingGuideContent();
+        if (!state.helperOpen) {
+          els.floatingGuide.className = "floating-guide";
+          els.floatingGuide.innerHTML = `
+            <button class="floating-guide-toggle" type="button" data-action="toggleFloatingGuide" aria-expanded="false">
+              <span class="floating-guide-mark" aria-hidden="true">?</span>
+              <span>提示</span>
+            </button>
+          `;
+          return;
+        }
+
+        els.floatingGuide.className = "floating-guide open";
+        els.floatingGuide.innerHTML = `
+          <section class="floating-guide-card" aria-live="polite">
+            <div class="floating-guide-head">
+              <div class="floating-guide-title">
+                <span class="floating-guide-mark" aria-hidden="true">?</span>
+                <div>
+                  <strong>${escapeHtml(info.title)}</strong>
+                  <span class="floating-guide-subtitle">跟着三步玩，不用读大段说明</span>
+                </div>
+              </div>
+              <button class="floating-guide-close" type="button" data-action="toggleFloatingGuide" aria-label="收起提示">收起</button>
+            </div>
+            <div class="floating-guide-rows">
+              <div class="floating-guide-row"><span>现在做</span><strong>${escapeHtml(info.now)}</strong></div>
+              <div class="floating-guide-row"><span>点哪里</span><strong>${escapeHtml(info.where)}</strong></div>
+              <div class="floating-guide-row"><span>完成标志</span><strong>${escapeHtml(info.finish)}</strong></div>
+            </div>
+            <div class="floating-guide-actions">
+              <p class="floating-guide-note">${escapeHtml(info.helper)}</p>
+              <button class="small-button dark" type="button" data-action="floatingGuideNext">${escapeHtml(info.button)}</button>
+            </div>
+          </section>
+        `;
+      }
+
+      function toggleFloatingGuide() {
+        state.helperOpen = !state.helperOpen;
+        saveState();
+        renderFloatingGuide();
+      }
+
+      function floatingGuideTarget() {
+        const level = currentLevel();
+        const note = (state.notes[level.id] || "").trim();
+        const done = Boolean(state.completed[level.id]);
+        const current = done ? 4 : guideStepIndex(level.id);
+
+        if (done) {
+          return {
+            kind: "summary",
+            message: "作品展里可以看到你和 AI 一起完成的作品。"
+          };
+        }
+
+        if (!note) {
+          if (current <= 1) {
+            return {
+              selector: "[data-action=\"wishRecord\"]",
+              message: "先点“记下愿望”，把一句想法放进成长日记。"
+            };
+          }
+          return {
+            drawer: "tools",
+            selector: `[data-note="${level.id}"]`,
+            message: "先在成长日记里写一句自己的目标。"
+          };
+        }
+
+        if (current <= 2) {
+          if (IS_PUBLIC_DEMO) {
+            return {
+              selector: `[data-complete="${level.id}"]`,
+              minGuideStep: 3,
+              message: "在线试玩版先完成冒险；本地版可以请 AI 给草稿。"
+            };
+          }
+          return {
+            drawer: "play",
+            selector: "[data-action=\"requestDirector\"]",
+            message: "可以请小精灵先想一版，家长看过后再采用。"
+          };
+        }
+
+        return {
+          selector: `[data-complete="${level.id}"]`,
+          minGuideStep: 4,
+          message: "愿望写好了，现在可以完成冒险，收集徽章。"
+        };
+      }
+
+      function scrollToGuideTarget(selector) {
+        const target = selector ? document.querySelector(selector) : null;
+        const card = target || els.stage;
+        if (!card) return;
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        card.classList.remove("guide-target-pulse");
+        void card.offsetWidth;
+        card.classList.add("guide-target-pulse");
+        window.setTimeout(() => card.classList.remove("guide-target-pulse"), 950);
+
+        const focusTarget = card.matches("button, textarea, input, summary")
+          ? card
+          : card.querySelector("button:not([disabled]), textarea, input, summary");
+        if (focusTarget) {
+          try {
+            focusTarget.focus({ preventScroll: true });
+          } catch {
+            focusTarget.focus();
+          }
+        }
+      }
+
+      function followFloatingGuide() {
+        const level = currentLevel();
+        const target = floatingGuideTarget();
+        state.helperOpen = true;
+        if (Number.isFinite(target.minGuideStep)) {
+          state.guideSteps = state.guideSteps || {};
+          state.guideSteps[level.id] = Math.max(guideStepIndex(level.id), target.minGuideStep);
+        }
+        saveState();
+
+        if (target.kind === "summary") {
+          renderFloatingGuide();
+          openSummary();
+          showToast(target.message);
+          return;
+        }
+
+        renderStage();
+        if (target.drawer) openStageDrawer(target.drawer);
+        window.setTimeout(() => scrollToGuideTarget(target.selector), 80);
+        showToast(target.message);
+      }
+
       function toolContext() {
         return {
           playerName: state.playerName || "小队长",
@@ -7662,6 +8013,7 @@
           </section>
         `;
         restoreOpenStageDrawers(openDrawers);
+        renderFloatingGuide();
       }
 
       function renderIslandArt(level) {
@@ -8945,6 +9297,8 @@ AI 帮我：${parts.aiHelp}
         if (action === "guidePrev") setGuideStep(-1);
         if (action === "guideNext") setGuideStep(1);
         if (action === "guideRecord") focusRecordBox();
+        if (action === "toggleFloatingGuide") toggleFloatingGuide();
+        if (action === "floatingGuideNext") followFloatingGuide();
         if (action === "voicePermission") prepareVoicePermission();
         if (action === "voiceListen") startVoiceListening();
         if (action === "voiceRead") speakText(currentGuideSpeechText());
@@ -8986,6 +9340,7 @@ AI 帮我：${parts.aiHelp}
         if (noteTarget) {
           state.notes[noteTarget.dataset.note] = noteTarget.value;
           saveState();
+          renderFloatingGuide();
           return;
         }
       });
