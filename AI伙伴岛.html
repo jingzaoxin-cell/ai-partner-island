@@ -208,7 +208,13 @@
       .sidebar {
         position: sticky;
         top: 16px;
+        max-height: calc(100vh - 32px);
+        max-height: calc(100dvh - 32px);
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
         padding: 18px;
+        scrollbar-gutter: stable;
       }
 
       .profile {
@@ -4614,6 +4620,10 @@
 
         .sidebar {
           position: static;
+          max-height: none;
+          overflow: visible;
+          overscroll-behavior: auto;
+          scrollbar-gutter: auto;
         }
 
         .profile {
