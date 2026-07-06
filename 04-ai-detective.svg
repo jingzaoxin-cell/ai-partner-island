@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">AI 也会犯错，我是小侦探</title>
+  <desc id="desc">孩子拿着放大镜检查 AI 的回答，学习不要盲相信。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff6e7"/>
+      <stop offset="52%" stop-color="#edfaff"/>
+      <stop offset="100%" stop-color="#f4eaff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#4b5b7a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <text x="600" y="88" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="52" font-weight="800" fill="#26334f">AI 也会犯错</text>
+  <text x="600" y="142" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="800" fill="#516079">我来当小侦探</text>
+  <g transform="translate(154 208)" filter="url(#shadow)">
+    <rect x="0" y="0" width="892" height="424" rx="46" fill="#ffffff" stroke="#b8d6ff" stroke-width="6"/>
+    <g transform="translate(46 58)">
+      <rect x="0" y="0" width="382" height="284" rx="34" fill="#f3f8ff" stroke="#9ec5ff" stroke-width="5"/>
+      <text x="191" y="60" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="31" font-weight="800" fill="#31405f">AI 说：</text>
+      <text x="191" y="125" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="28" font-weight="700" fill="#31405f">“我知道你昨天</text>
+      <text x="191" y="170" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="28" font-weight="700" fill="#31405f">穿了蓝袜子。”</text>
+      <circle cx="300" cy="222" r="32" fill="#ff8f7d"/>
+      <path d="M286 222 h28 M300 208 v28" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(526 72)">
+      <circle cx="116" cy="56" r="48" fill="#ffd0a8"/>
+      <path d="M70 54 C78 8 156 -2 168 54 C136 38 98 38 70 54Z" fill="#4a342e"/>
+      <circle cx="99" cy="53" r="5" fill="#2d1f1b"/>
+      <circle cx="134" cy="53" r="5" fill="#2d1f1b"/>
+      <path d="M100 75 q16 10 32 0" stroke="#2d1f1b" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M64 108 C84 88 148 88 172 108 L194 254 L42 254Z" fill="#62c9a5"/>
+      <circle cx="96" cy="178" r="58" fill="none" stroke="#26334f" stroke-width="16"/>
+      <line x1="140" y1="222" x2="206" y2="288" stroke="#26334f" stroke-width="18" stroke-linecap="round"/>
+      <circle cx="96" cy="178" r="36" fill="#fff" opacity="0.3"/>
+    </g>
+  </g>
+  <g transform="translate(240 656)" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-weight="800" fill="#31405f">
+    <rect x="0" y="-46" width="720" height="82" rx="28" fill="#fff7d1" stroke="#ffbf48" stroke-width="5"/>
+    <text x="360" y="7" text-anchor="middle" font-size="36">先想一想，再查一查，不要马上相信</text>
+  </g>
+</svg>

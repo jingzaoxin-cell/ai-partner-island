@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">AI 是我的新朋友</title>
+  <desc id="desc">一个孩子和友好的发光 AI 小机器人在星星窗边见面。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8f7ff"/>
+      <stop offset="52%" stop-color="#fff4d6"/>
+      <stop offset="100%" stop-color="#f2e8ff"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#4b5b7a" flood-opacity="0.18"/>
+    </filter>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="1010" cy="132" r="86" fill="#ffd76a" opacity="0.75"/>
+  <circle cx="1010" cy="132" r="112" fill="#ffd76a" opacity="0.18"/>
+  <g opacity="0.9">
+    <circle cx="136" cy="135" r="8" fill="#7197ff"/>
+    <circle cx="220" cy="86" r="5" fill="#ff8f7d"/>
+    <circle cx="101" cy="250" r="6" fill="#38bfa7"/>
+    <path d="M286 146 l10 20 22 4 -16 15 3 22 -19 -11 -20 10 5 -22 -15 -16 22-3z" fill="#ffbf48"/>
+  </g>
+  <rect x="110" y="126" width="980" height="560" rx="44" fill="#ffffff" opacity="0.68"/>
+  <rect x="142" y="158" width="916" height="496" rx="34" fill="#ffffff" opacity="0.62" stroke="#b8d6ff" stroke-width="4"/>
+  <path d="M170 590 C300 514 436 520 570 590 S864 682 1032 586 L1032 654 L170 654 Z" fill="#d9f6ed"/>
+  <g transform="translate(234 278)" filter="url(#softShadow)">
+    <circle cx="102" cy="78" r="58" fill="#ffd0a8"/>
+    <path d="M42 74 C54 16 154 0 172 66 C138 48 89 48 42 74Z" fill="#5b3a2e"/>
+    <path d="M68 85 q14 18 31 0" stroke="#593b32" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <circle cx="78" cy="68" r="6" fill="#39231e"/>
+    <circle cx="128" cy="68" r="6" fill="#39231e"/>
+    <path d="M46 138 C70 114 138 112 160 138 L184 278 L22 278 Z" fill="#4b8cff"/>
+    <path d="M32 174 C-2 194 1 247 45 250" stroke="#ffd0a8" stroke-width="26" fill="none" stroke-linecap="round"/>
+    <path d="M172 174 C216 194 224 236 188 256" stroke="#ffd0a8" stroke-width="26" fill="none" stroke-linecap="round"/>
+    <circle cx="102" cy="142" r="18" fill="#ffffff" opacity="0.88"/>
+    <path d="M90 143 l10 10 20-24" stroke="#38bfa7" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(604 238)" filter="url(#softShadow)">
+    <ellipse cx="178" cy="344" rx="170" ry="32" fill="#a9bad1" opacity="0.25"/>
+    <rect x="48" y="72" width="260" height="250" rx="54" fill="#eaf7ff" stroke="#6aa4ff" stroke-width="8"/>
+    <rect x="90" y="120" width="176" height="112" rx="36" fill="#ffffff" stroke="#91c4ff" stroke-width="6"/>
+    <circle cx="139" cy="176" r="15" fill="#33415c"/>
+    <circle cx="218" cy="176" r="15" fill="#33415c"/>
+    <path d="M142 213 C162 236 196 236 216 213" stroke="#33415c" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <circle cx="178" cy="48" r="22" fill="#42d3b4" filter="url(#glow)"/>
+    <path d="M178 70 L178 28" stroke="#6aa4ff" stroke-width="8" stroke-linecap="round"/>
+    <rect x="96" y="312" width="54" height="62" rx="22" fill="#6aa4ff"/>
+    <rect x="206" y="312" width="54" height="62" rx="22" fill="#6aa4ff"/>
+    <path d="M44 164 C4 170 -2 228 38 242" stroke="#6aa4ff" stroke-width="22" fill="none" stroke-linecap="round"/>
+    <path d="M312 164 C357 170 365 228 318 242" stroke="#6aa4ff" stroke-width="22" fill="none" stroke-linecap="round"/>
+    <g fill="#42d3b4" opacity="0.9">
+      <circle cx="58" cy="72" r="8"/>
+      <circle cx="300" cy="84" r="7"/>
+      <circle cx="322" cy="292" r="9"/>
+      <circle cx="34" cy="298" r="6"/>
+    </g>
+  </g>
+  <text x="600" y="92" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="56" font-weight="800" fill="#26334f">AI 是我的新朋友</text>
+  <text x="600" y="724" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" font-size="38" font-weight="700" fill="#31405f">它很会帮忙，但主意还是我来想</text>
+</svg>

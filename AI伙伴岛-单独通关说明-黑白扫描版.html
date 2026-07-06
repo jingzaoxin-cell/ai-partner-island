@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI伙伴岛通关说明 - 黑白扫描版</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23fff'/%3E%3Cpath d='M14 14h36v36H14z' fill='none' stroke='%23111' stroke-width='5'/%3E%3Cpath d='M23 28h18M23 38h14' stroke='%23111' stroke-width='5'/%3E%3C/svg%3E" />
+    <style>
+      :root {
+        font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        color: #111;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.025) 0 1px, transparent 1px 6px),
+          repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.018) 0 1px, transparent 1px 8px),
+          #e9e9e9;
+      }
+
+      .actions {
+        position: sticky;
+        top: 10px;
+        z-index: 3;
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        width: min(920px, calc(100% - 24px));
+        margin: 14px auto 0;
+      }
+
+      .actions a,
+      .actions button {
+        min-height: 40px;
+        padding: 0 14px;
+        border: 2px solid #111;
+        border-radius: 0;
+        background: #fff;
+        color: #111;
+        font: inherit;
+        font-weight: 950;
+        text-decoration: none;
+        box-shadow: 3px 3px 0 #111;
+        cursor: pointer;
+      }
+
+      .paper {
+        position: relative;
+        width: min(920px, calc(100% - 24px));
+        margin: 18px auto 28px;
+        padding: 28px;
+        border: 2px solid #111;
+        background:
+          radial-gradient(circle at 18% 24%, rgba(0, 0, 0, 0.04) 0 1px, transparent 2px),
+          radial-gradient(circle at 80% 62%, rgba(0, 0, 0, 0.035) 0 1px, transparent 2px),
+          #fff;
+        box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.22);
+      }
+
+      .paper::before {
+        content: "复印任务单";
+        position: absolute;
+        right: 22px;
+        top: 18px;
+        padding: 7px 12px;
+        border: 3px double #111;
+        background: #fff;
+        font-size: 18px;
+        font-weight: 950;
+        transform: rotate(3deg);
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: 1fr 128px;
+        gap: 18px;
+        align-items: end;
+        padding-bottom: 16px;
+        border-bottom: 5px solid #111;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 9px;
+        padding: 5px 9px;
+        border: 2px solid #111;
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 620px;
+        font-size: 42px;
+        line-height: 1.08;
+      }
+
+      .subtitle {
+        max-width: 650px;
+        margin: 10px 0 0;
+        font-size: 16px;
+        line-height: 1.7;
+        font-weight: 850;
+      }
+
+      .scan-bot {
+        display: grid;
+        width: 118px;
+        height: 118px;
+        place-items: center;
+        border: 4px solid #111;
+        background:
+          linear-gradient(45deg, transparent 47%, #111 48% 52%, transparent 53%),
+          #fff;
+        font-size: 32px;
+        font-weight: 950;
+      }
+
+      h2 {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin: 24px 0 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #111;
+        font-size: 23px;
+      }
+
+      h2 b {
+        display: inline-grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        border: 2px solid #111;
+        background: #fff;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .flow div,
+      .box,
+      .line {
+        border: 2px solid #111;
+        background: #fff;
+      }
+
+      .flow div {
+        min-height: 92px;
+        padding: 13px;
+      }
+
+      .flow strong {
+        display: block;
+        margin-bottom: 7px;
+        font-size: 18px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .box {
+        padding: 13px;
+        min-height: 92px;
+      }
+
+      .box strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 18px;
+      }
+
+      .line {
+        padding: 11px 13px;
+        font-size: 17px;
+        font-weight: 850;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        font-size: 14px;
+        font-weight: 750;
+      }
+
+      th,
+      td {
+        border: 2px solid #111;
+        padding: 8px;
+        vertical-align: top;
+      }
+
+      th {
+        background: #eee;
+      }
+
+      .stamp {
+        margin-top: 14px;
+        border: 4px double #111;
+        padding: 14px;
+        font-size: 20px;
+        line-height: 1.75;
+        font-weight: 950;
+      }
+
+      @media (max-width: 720px) {
+        header,
+        .flow,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .actions {
+          display: none;
+        }
+
+        .paper {
+          width: auto;
+          margin: 0;
+          border: 0;
+          box-shadow: none;
+          padding: 16mm;
+        }
+
+        .paper::before {
+          top: 10mm;
+          right: 14mm;
+        }
+
+        h2 {
+          break-after: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="actions">
+      <a href="./AI伙伴岛-单独通关说明-打印版.html">普通打印版</a>
+      <button type="button" onclick="window.print()">打印</button>
+    </div>
+
+    <main class="paper">
+      <header>
+        <div>
+          <span class="eyebrow">黑白扫描版 · 家庭 AI 启蒙</span>
+          <h1>电子宠物向导说明</h1>
+          <p class="subtitle">孩子提出要求，电子宠物带路，AI 帮忙生成草稿；孩子负责选择、修改和检查。</p>
+          <p class="subtitle">版本对齐：2026-07-06 修复版；当前玩法以“说愿望、AI 试一版、我来改、我决定”为主线。</p>
+        </div>
+        <div class="scan-bot">AI</div>
+      </header>
+
+      <h2><b>1</b>三步就能开始</h2>
+      <section class="flow">
+        <div><strong>跟宠物认识 AI</strong>AI 能帮我什么？能完成什么任务？</div>
+        <div><strong>练习和 AI 交流</strong>孩子说：我想让 AI 帮我……</div>
+        <div><strong>一起应用 AI</strong>看草稿，自己选，自己改。</div>
+      </section>
+
+      <h2><b>2</b>AI 可以帮什么</h2>
+      <section class="grid">
+        <div class="box"><strong>创造</strong>想故事、设定角色、设计电子宠物、写图像提示词。</div>
+        <div class="box"><strong>游戏</strong>设计纸上小游戏：角色、目标、障碍、奖励。</div>
+        <div class="box"><strong>学习</strong>解释知识、举生活例子、出小练习、陪孩子复述。</div>
+        <div class="box"><strong>判断</strong>把 AI 回答分成确定、不确定、需要查证。</div>
+      </section>
+
+      <h2><b>3</b>孩子怎样和 AI 配合</h2>
+      <section class="grid">
+        <div class="line">先说目标：我想让 AI 帮我……</div>
+        <div class="line">补充细节：颜色、地点、动作、风格。</div>
+        <div class="line">看 AI 草稿：喜欢什么，不喜欢什么。</div>
+        <div class="line">自己决定：改成我的说法。</div>
+        <div class="line">检查真假：AI 可能会错。</div>
+        <div class="line">保护隐私：不说学校、住址、电话、真实照片。</div>
+      </section>
+
+      <h2><b>4</b>参数里学习知识</h2>
+      <section class="grid">
+        <div class="line">尺寸：数学里的大小、长度、比例、单位。</div>
+        <div class="line">颜色和形状：把想法说具体，认识图形和对称。</div>
+        <div class="line">移动方式：物理里的跳、飞、滑、滚、速度。</div>
+        <div class="line">英文名字：给宠物起一个简单英文名。</div>
+      </section>
+
+      <h2><b>5</b>10 个成长主题</h2>
+      <table>
+        <thead><tr><th>主题</th><th>认识 AI</th><th>小任务</th></tr></thead>
+        <tbody>
+          <tr><td>唤醒 AI 小精灵</td><td>AI 是助手</td><td>起名并问问题</td></tr>
+          <tr><td>AI 不是魔法</td><td>AI 会猜也会错</td><td>找一个猜错点</td></tr>
+          <tr><td>提示词魔法卡</td><td>说清楚更重要</td><td>改进一句提示词</td></tr>
+          <tr><td>电子宠物诞生</td><td>AI 能整理设定</td><td>做宠物档案</td></tr>
+          <tr><td>故事导演工作室</td><td>AI 能写草稿</td><td>孩子改剧情</td></tr>
+          <tr><td>想象变成画</td><td>语言能变画面</td><td>写图像提示词</td></tr>
+          <tr><td>设计我的小游戏</td><td>游戏有规则</td><td>做纸上小游戏</td></tr>
+          <tr><td>创建学习伴侣</td><td>AI 能解释知识</td><td>复述给家长听</td></tr>
+          <tr><td>AI 真假侦探</td><td>不能马上相信</td><td>查证一条回答</td></tr>
+          <tr><td>家庭 AI 作品展</td><td>AI 帮忙，孩子决定</td><td>说三句展示词</td></tr>
+        </tbody>
+      </table>
+
+      <h2><b>6</b>完成标志</h2>
+      <div class="stamp">
+        我想让 AI 帮我……<br />
+        AI 帮了我……<br />
+        我自己决定了……<br />
+        AI 可能会错，所以我要检查。
+      </div>
+    </main>
+  </body>
+</html>

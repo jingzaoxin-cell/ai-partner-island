@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI伙伴岛通关说明 - 打印版</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23fff'/%3E%3Cpath d='M14 14h36v36H14z' fill='none' stroke='%23111' stroke-width='5'/%3E%3Cpath d='M23 28h18M23 38h14' stroke='%23111' stroke-width='5'/%3E%3C/svg%3E" />
+    <style>
+      :root {
+        font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        color: #111;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #f4f4f4;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        width: min(900px, calc(100% - 24px));
+        margin: 16px auto 0;
+      }
+
+      button,
+      a {
+        min-height: 40px;
+        padding: 0 14px;
+        border: 2px solid #111;
+        background: #fff;
+        color: #111;
+        font: inherit;
+        font-weight: 900;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .page {
+        width: min(900px, calc(100% - 24px));
+        margin: 16px auto 28px;
+        padding: 34px;
+        border: 2px solid #111;
+        background: #fff;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: 1fr 118px;
+        gap: 20px;
+        align-items: center;
+        border-bottom: 4px solid #111;
+        padding-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 40px;
+        line-height: 1.1;
+      }
+
+      .subtitle {
+        margin: 10px 0 0;
+        font-size: 17px;
+        line-height: 1.7;
+        font-weight: 800;
+      }
+
+      .pet {
+        display: grid;
+        width: 108px;
+        height: 108px;
+        place-items: center;
+        border: 4px solid #111;
+        border-radius: 18px;
+        font-size: 34px;
+        font-weight: 950;
+      }
+
+      h2 {
+        margin: 26px 0 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #111;
+        font-size: 24px;
+      }
+
+      .steps,
+      .cards,
+      .rules {
+        display: grid;
+        gap: 10px;
+      }
+
+      .steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .step,
+      .card,
+      .rule {
+        border: 2px solid #111;
+        padding: 14px;
+        background: #fff;
+      }
+
+      .step strong,
+      .card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 19px;
+      }
+
+      .step b {
+        display: inline-grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        margin-right: 6px;
+        border: 2px solid #111;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+        line-height: 1.75;
+        font-weight: 750;
+      }
+
+      .script {
+        border: 3px double #111;
+        padding: 16px;
+        font-size: 20px;
+        line-height: 1.8;
+        font-weight: 900;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        font-weight: 750;
+      }
+
+      th,
+      td {
+        border: 1.8px solid #111;
+        padding: 8px;
+        vertical-align: top;
+      }
+
+      th {
+        background: #eee;
+      }
+
+      @media (max-width: 720px) {
+        header,
+        .steps,
+        .cards {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .actions {
+          display: none;
+        }
+
+        .page {
+          width: auto;
+          margin: 0;
+          border: 0;
+          padding: 18mm;
+        }
+
+        h2 {
+          break-after: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="actions">
+      <a href="./AI伙伴岛-单独通关说明-黑白扫描版.html">黑白扫描版</a>
+      <button type="button" onclick="window.print()">打印</button>
+    </div>
+
+    <main class="page">
+      <header>
+        <div>
+          <h1>AI伙伴岛通关说明</h1>
+          <p class="subtitle">电子宠物带孩子认识 AI、学习 AI、应用 AI。真正的完成标志不是刷关，而是孩子能说清：AI 帮了什么，我决定了什么。</p>
+          <p class="subtitle">版本对齐：2026-07-06 修复版；当前玩法以“说愿望、AI 试一版、我来改、我决定”为主线。</p>
+        </div>
+        <div class="pet">AI</div>
+      </header>
+
+      <h2>1. 每次只走三步</h2>
+      <section class="steps">
+        <div class="step"><strong><b>1</b>跟宠物认识 AI</strong><p>知道 AI 能帮我什么。</p></div>
+        <div class="step"><strong><b>2</b>练习和 AI 交流</strong><p>说一句：我想让 AI 帮我……</p></div>
+        <div class="step"><strong><b>3</b>一起应用 AI</strong><p>看草稿、自己选、自己改。</p></div>
+      </section>
+
+      <h2>2. AI 可以帮孩子做什么</h2>
+      <section class="cards">
+        <div class="card"><strong>创造</strong><p>想故事、设定角色、设计电子宠物、写图像提示词。</p></div>
+        <div class="card"><strong>游戏</strong><p>做纸上小游戏规则：角色、目标、障碍、奖励。</p></div>
+        <div class="card"><strong>学习</strong><p>解释知识、举生活例子、出三道小练习。</p></div>
+        <div class="card"><strong>判断</strong><p>找出不确定回答，问“你怎么知道的？”</p></div>
+      </section>
+
+      <h2>3. 孩子怎样和 AI 配合</h2>
+      <section class="rules">
+        <div class="rule">先说目标：我想让 AI 帮我……</div>
+        <div class="rule">再加细节：颜色、地点、动作、风格、不要什么。</div>
+        <div class="rule">看 AI 草稿：喜欢哪句，不喜欢哪句。</div>
+        <div class="rule">改成自己的：作品属于孩子，不属于 AI。</div>
+        <div class="rule">最后检查：AI 可能会错，重要内容要问家长或查证。</div>
+      </section>
+
+      <h2>4. 参数里学习知识</h2>
+      <section class="cards">
+        <div class="card"><strong>尺寸</strong><p>数学：大小、长度、比例、单位。</p></div>
+        <div class="card"><strong>颜色和形状</strong><p>语文表达 + 数学图形：把想法说具体。</p></div>
+        <div class="card"><strong>移动方式</strong><p>物理：跳、飞、滑、滚、速度。</p></div>
+        <div class="card"><strong>英文名字</strong><p>英语：给宠物起一个简单英文名。</p></div>
+      </section>
+
+      <h2>5. 十个成长主题</h2>
+      <table>
+        <thead><tr><th>主题</th><th>孩子认识什么</th><th>完成一个小任务</th></tr></thead>
+        <tbody>
+          <tr><td>唤醒 AI 小精灵</td><td>AI 是助手</td><td>给小精灵起名并问问题</td></tr>
+          <tr><td>AI 不是魔法</td><td>AI 会猜也会错</td><td>找出一个猜错点</td></tr>
+          <tr><td>提示词魔法卡</td><td>说清楚更重要</td><td>改进一句提示词</td></tr>
+          <tr><td>电子宠物诞生</td><td>AI 能整理设定</td><td>做宠物档案</td></tr>
+          <tr><td>故事导演工作室</td><td>AI 写草稿</td><td>孩子改剧情</td></tr>
+          <tr><td>想象变成画</td><td>语言能变画面</td><td>写图像提示词</td></tr>
+          <tr><td>设计我的小游戏</td><td>游戏有规则</td><td>做纸上小游戏</td></tr>
+          <tr><td>创建学习伴侣</td><td>AI 能解释知识</td><td>复述给家长听</td></tr>
+          <tr><td>AI 真假侦探</td><td>不能马上相信</td><td>查证一条回答</td></tr>
+          <tr><td>家庭 AI 作品展</td><td>AI 帮忙，孩子决定</td><td>说三句展示词</td></tr>
+        </tbody>
+      </table>
+
+      <h2>6. 完成标志</h2>
+      <div class="script">
+        我想让 AI 帮我……<br />
+        AI 帮了我……<br />
+        我自己决定了……<br />
+        AI 可能会错，所以我要检查。
+      </div>
+    </main>
+  </body>
+</html>
